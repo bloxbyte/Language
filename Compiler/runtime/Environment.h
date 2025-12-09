@@ -4,6 +4,7 @@
 #include "../Common.h"
 #include "Value.h"
 #include "../parser/AST.h"
+#include "../utils/Error.h"
 
 class Environment {
 public:
@@ -41,30 +42,6 @@ public:
         }
 
         throw NameError("Undefined variable: " + name);
-    }
-
-    void set(const String& name, const Value& value) {
-        auto it = variables.find(name);
-        if (it != variables.end()) {
-            it->second = value;
-            auto cacheIt = variableCache.find(name);
-            if (cacheIt != variableCache.end()) {
-                cacheIt->second = &(it->second);
-            }
-            return;
-        }
-
-        if (parent) {
-            parent->set(name, value);
-            return;
-        }
-
-        throw NameError("Undefined variable: " + name);
-    }
-
-    void define(const String& name, const Value& value) {
-        variables[name] = value;
-        variableCache[name] = &variables[name];
     }
 
     void clearCache() {

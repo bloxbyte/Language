@@ -75,23 +75,15 @@ public:
         return v;
     }
 
-    bool isInt() const { return type == ValueType::INTEGER; }
-    bool isFloat() const { return type == ValueType::FLOAT; }   
-    bool isString() const { return type == ValueType::STRING; }
-    bool isBool() const { return type == ValueType::BOOLEAN; }
     bool isNil() const { return type == ValueType::NIL; }
     bool isFunction() const { return type == ValueType::FUNCTION; }
     bool isStruct() const { return type == ValueType::STRUCT_INSTANCE; }
-
-    int asInt() const { return intValue; }
-    float asFloat() const { return floatValue; }                
+            
     const String& asString() const { return stringValue; }
-    bool asBool() const { return boolValue; }
 
     String toString() const;
     String getTypeName() const;
 
-    // Type coercion for truthiness
     bool isTruthy() const {
         if (isBool()) return boolValue;
         if (isInt()) return intValue != 0;

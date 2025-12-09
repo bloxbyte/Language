@@ -46,8 +46,8 @@ void BuiltinRegistry::registerAll() {
 
     registerFunction("string.length", Builtins::String::length);
     registerFunction("string.substring", Builtins::String::substring);
-    registerFunction("string.toupper", Builtins::String::toupper);
-    registerFunction("string.tolower", Builtins::String::tolower);
+    registerFunction("string.upper", Builtins::String::toupper);
+    registerFunction("string.lower", Builtins::String::tolower);
     registerFunction("string.contains", Builtins::String::contains);
     registerFunction("string.replace", Builtins::String::replace);
     registerFunction("string.split", Builtins::String::split);

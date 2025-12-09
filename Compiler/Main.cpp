@@ -88,7 +88,7 @@ void runREPL() {
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        std::cout << "Usage: " << argv[0] << " <filename.nc>" << std::endl;
+        std::cout << "Usage: " << argv[0] << " <filename.npp>" << std::endl;
         std::cout << "   or: " << argv[0] << " --repl" << std::endl;
         return 1;
     }

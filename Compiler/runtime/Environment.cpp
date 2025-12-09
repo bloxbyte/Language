@@ -1,10 +1,10 @@
 #include "Environment.h"
-#include "../utils/Error.h"
 
 Environment::Environment(Ptr<Environment> enc) : enclosing(enc) {}
 
 void Environment::define(const String& name, const Value& value) {
-    values[name] = value;
+    variables[name] = value;
+    variableCache[name] = &variables[name];
 }
 
 Value Environment::get(const String& name) const {
@@ -21,18 +21,22 @@ Value Environment::get(const String& name) const {
 }
 
 void Environment::set(const String& name, const Value& value) {
-    auto it = values.find(name);
-    if (it != values.end()) {
+    auto it = variables.find(name);
+    if (it != variables.end()) {
         it->second = value;
+        auto cacheIt = variableCache.find(name);
+        if (cacheIt != variableCache.end()) {
+            cacheIt->second = &(it->second);
+        }
         return;
     }
 
-    if (enclosing) {
-        enclosing->set(name, value);
+    if (parent) {
+        parent->set(name, value);
         return;
     }
 
-    throw NameError("Undefined variable '" + name + "'");
+    throw NameError("Undefined variable: " + name);
 }
 
 bool Environment::exists(const String& name) const {
