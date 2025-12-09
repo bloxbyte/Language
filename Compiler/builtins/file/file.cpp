@@ -94,5 +94,5 @@ namespace Builtins {
             return Value::makeBool(fileExists);
         }
 
-    } // namespace File
-} // namespace Builtins
+    } 
+} 

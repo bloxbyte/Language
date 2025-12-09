@@ -131,7 +131,7 @@ namespace Builtins {
                 pos += delim.length();
             }
 
-            return Value::makeInt(count + 1); // number of parts
+            return Value::makeInt(count + 1); 
         }
 
         Value trim(const Vec<Value>& args) {
@@ -144,18 +144,16 @@ namespace Builtins {
             }
 
             ::String str = args[0].asString();
-
-            // Trim left
+           
             size_t start = str.find_first_not_of(" \t\n\r");
             if (start == ::String::npos) {
                 return Value::makeString("");
             }
 
-            // Trim right
             size_t end = str.find_last_not_of(" \t\n\r");
 
             return Value::makeString(str.substr(start, end - start + 1));
         }
 
-    } // namespace String
-} // namespace Builtins
+    }
+} 

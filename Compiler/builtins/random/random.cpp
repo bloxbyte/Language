@@ -36,14 +36,14 @@ namespace Builtins {
             double min = 0.0, max = 0.0;
 
             if (args[0].isFloat()) {
-                min = static_cast<double>(args[0].asFloat());  // Changed from asInt()
+                min = static_cast<double>(args[0].asFloat());  
             }
             else {
                 throw TypeError("random.float() requires decimal arguments");
             }
 
             if (args[1].isFloat()) {
-                max = static_cast<double>(args[1].asFloat());  // Changed from asInt()
+                max = static_cast<double>(args[1].asFloat());  
             }
             else {
                 throw TypeError("random.float() requires decimal arguments");
@@ -55,9 +55,8 @@ namespace Builtins {
 
             std::uniform_real_distribution<double> dist(min, max);
 
-            // Return as float, not int
-            return Value::makeFloat(static_cast<float>(dist(gen)));  // Changed to float
+            return Value::makeFloat(static_cast<float>(dist(gen))); 
         }
 
-    } // namespace Random
-} // namespace Builtins
+    } 
+} 

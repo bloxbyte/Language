@@ -3,16 +3,13 @@
 #include "../Common.h"
 
 enum class TokenType {
-    // Literals
     INTEGER,
     STRING,
     TRUE,
     FALSE,
 
-    // Identifiers
     IDENTIFIER,
 
-    // Keywords
     DEFINE,
     FLOAT,
     FLOAT_LITERAL,
@@ -24,18 +21,16 @@ enum class TokenType {
     RETURN,
 
     IF,
-    ELSEIF,     // Add this
+    ELSEIF,     
     ELSE,
     FOR,
 
-    // Operators
     PLUS,
     MINUS,
     STAR,
     SLASH,
     PERCENT,
 
-    // Comparison
     LESS,
     GREATER,
     LESS_EQUAL,
@@ -43,24 +38,21 @@ enum class TokenType {
     EQUAL_EQUAL,
     NOT_EQUAL,
 
-    // Logical
     AND,
     OR,
 
-    // Symbols
-    COLON,          // :
-    SEMICOLON,      // ;
-    COMMA,          // ,
-    DOT,            // .
-    QUESTION,       // ?
-    LEFT_PAREN,     // (
-    RIGHT_PAREN,    // )
-    LEFT_BRACKET,   // [
-    RIGHT_BRACKET,  // ]
-    LEFT_BRACE,     // {
-    RIGHT_BRACE,    // }
+    COLON,          
+    SEMICOLON,      
+    COMMA,          
+    DOT,            
+    QUESTION,       
+    LEFT_PAREN,     
+    RIGHT_PAREN,    
+    LEFT_BRACKET,   
+    RIGHT_BRACKET,  
+    LEFT_BRACE,     
+    RIGHT_BRACE,    
 
-    // Special
     END_OF_FILE,
     INVALID
 };

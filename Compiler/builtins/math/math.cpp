@@ -89,8 +89,7 @@ namespace Builtins {
             if (!args[0].isInt()) {
                 throw TypeError("math.floor() requires integer argument");
             }
-
-            // For integers, floor is identity
+     
             return args[0];
         }
 
@@ -103,9 +102,8 @@ namespace Builtins {
                 throw TypeError("math.ceil() requires integer argument");
             }
 
-            // For integers, ceil is identity
             return args[0];
         }
 
-    } // namespace Math
-} // namespace Builtins
+    }
+} 

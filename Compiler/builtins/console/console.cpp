@@ -40,5 +40,5 @@ namespace Builtins {
             return Value::makeNil();
         }
 
-    } // namespace Console
-} // namespace Builtins
+    } 
+} 
