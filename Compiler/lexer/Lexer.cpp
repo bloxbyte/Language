@@ -215,27 +215,21 @@ void Lexer::scanNumber() {
     int startCol = column;
     String number;
 
-    // Scan integer part
     while (!isAtEnd() && isDigit(peek())) {
         number += advance();
     }
 
-    // Check for decimal point followed by digits
     if (!isAtEnd() && peek() == '.' && peekNext() != '\0' && isDigit(peekNext())) {
-        // Consume the '.'
         number += advance();
 
-        // Scan fractional part
         while (!isAtEnd() && isDigit(peek())) {
             number += advance();
         }
 
-        // Create float literal token
         tokens.emplace_back(TokenType::FLOAT_LITERAL, number, line, startCol);
         return;
     }
 
-    // Create integer token
     tokens.emplace_back(TokenType::INTEGER, number, line, startCol);
 }
 
